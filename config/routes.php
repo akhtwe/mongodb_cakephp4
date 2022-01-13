@@ -70,6 +70,13 @@ return static function (RouteBuilder $routes) {
          * You can remove these routes once you've connected the
          * routes you want in your application.
          */
+        /* 
+        *Customers Routes
+        */
+        // $builder->connect('/customers', ['controller' => 'Customer', 'action' => 'index', 'customers/index']);
+        $builder->connect('/customer', ['controller' => 'Customer', 'action' => 'index']);
+
+
         $builder->fallbacks();
     });
 

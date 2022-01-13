@@ -1,0 +1,1 @@
+<h2>My App View</h2>

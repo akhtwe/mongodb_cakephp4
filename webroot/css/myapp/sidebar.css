@@ -1,0 +1,17 @@
+.main-sidebar{
+  list-style: none;
+  background-color:#666262;
+  padding:0px;
+}
+.main-sidebar>li{
+  line-height: 50px;
+  border-bottom: 1px white solid;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  padding: 0px 35px;
+}
+.main-sidebar>li:hover{
+  background-color:black;
+  cursor: pointer;
+}
