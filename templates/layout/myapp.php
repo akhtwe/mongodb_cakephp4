@@ -9,6 +9,7 @@
 echo $this->fetch('meta');
 echo $this->fetch('css');
 echo $this->Html->css('myapp/sidebar');
+echo $this->Html->css('myapp/myapp');
 ?>
 </head>
 <body>
@@ -23,11 +24,11 @@ show up on all of your views, include it here -->
 <!-- Here's where I want my views to be displayed -->
 <div class="container-fluid">
 <div class="row">
-    <div class="col-lg-3 p-0 h-100">
+    <div class="col-lg-2 p-0">
         <?php echo $this->element('myapp/sidebar'); ?>
     </div>
-    <div class="col-lg-9">
-        <div class="content">
+    <div class="col-lg-10">
+        <div class="content mb-5">
             <?= $this->fetch('content') ?>
         </div>
     </div>

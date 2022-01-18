@@ -50,7 +50,7 @@ return static function (RouteBuilder $routes) {
          * its action called 'display', and we pass a param to select the view file
          * to use (in this case, templates/Pages/home.php)...
          */
-        $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+        // $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
         /*
          * ...and connect the rest of 'Pages' controller's URLs.
@@ -73,8 +73,11 @@ return static function (RouteBuilder $routes) {
         /* 
         *Customers Routes
         */
-        // $builder->connect('/customers', ['controller' => 'Customer', 'action' => 'index', 'customers/index']);
-        $builder->connect('/customer', ['controller' => 'Customer', 'action' => 'index']);
+        $builder->connect('/', ['controller' => 'Pages', 'action' => 'dashboard','dashboard']);
+        $builder->connect('/customer', ['controller' => 'Customer', 'action' => 'index','[method]' => 'GET']);
+        $builder->connect('/customer/create', ['controller' => 'Customer', 'action' => 'create']);
+        $builder->connect('/customer/edit', ['controller' => 'Customer', 'action' => 'create']);
+        $builder->connect('/customer/save', ['controller' => 'Customer', 'action' => 'save','[method]' => 'POST']);
 
 
         $builder->fallbacks();
