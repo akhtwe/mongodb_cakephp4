@@ -10,6 +10,7 @@ echo $this->fetch('meta');
 echo $this->fetch('css');
 echo $this->Html->css('myapp/sidebar');
 echo $this->Html->css('myapp/myapp');
+echo $this->Html->script('jquery-3.6.0.min.js');
 ?>
 </head>
 <body>
@@ -39,7 +40,6 @@ show up on all of your views, include it here -->
 <div id="footer" class="fixed-bottom">
     <?php echo $this->element('myapp/footer'); ?>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <?php echo $this->fetch('script');?>

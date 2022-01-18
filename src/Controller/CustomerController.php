@@ -71,4 +71,14 @@ class CustomerController extends AppController
         var_dump($save);die();
         
     }
+    public function destory($_id=null)
+    {
+        $this->request->allowMethod(['post']);
+        $params=$this->request->getQuery();
+        if($_id){
+            $deleteResult = $this->customerModel->deleteOne(['_id'=>new MongoObjectId($_id)]);
+            if($deleteResult) return $this->redirect('/customer');
+        }
+        var_dump("Cann't delete , ObjectId : ".$_id);
+    }
 }

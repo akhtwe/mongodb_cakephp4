@@ -23,6 +23,9 @@
                         <td><?= $customer->addresss?></td>
                         <td>
                             <a href="/customer/edit?_id=<?= $customer->_id?>" class="btn btn-sm btn-warning">Edit</a>
+                            <?= $this->Form->create(null,['url' => "/customer/destory/$customer->_id",'class' => 'form-horizontal d-inline-block','id'=>'delete-customer','_method'=>'DELETE']); ?>
+                            <button type="submit" id="btn-delete-customer" class="btn btn-sm btn-danger mx-2">Delete</button>
+                            <?= $this->Form->end() ?>
                         </td>
                     </tr>
                 <?php endforeach;?>
