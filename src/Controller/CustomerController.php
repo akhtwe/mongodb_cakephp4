@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 // use App\Mongo\Mongo;
-use MongoDB\Client as Mongo;
+use App\lib\datasources\Mongo;
 use MongoDB\BSON\ObjectId as MongoObjectId;
 
 class CustomerController extends AppController
@@ -16,15 +16,12 @@ class CustomerController extends AppController
         $this->viewPath = "/Customer/"; 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-        $this->mongo = new Mongo("mongodb://127.0.0.1:27017");
-        $this->customerModel=$this->mongo->companydb->customers;
+        $this->mongo =Mongo::connect();
+        $this->customerModel=$this->mongo->customers;
     }
     public function index()
     {
-        $listDatabase=$this->mongo->listDatabases();
-        // $customer=$this->mongo->companydb->customers;
         $listCustomer=$this->customerModel->find()->toArray();
-        $this->set('dbs',$listDatabase);
         $this->set('customers',$listCustomer);
         $this->render("index");
         
@@ -49,10 +46,10 @@ class CustomerController extends AppController
                     'name'=>$data['name'],
                     'phone'=>$data['phone'],
                     'email'=>$data['email'],
-                    'addresss'=>$data['addresss']]
+                    'address'=>$data['address']]
                 ]
             );
-            if($updateResult->getModifiedCount()>0){
+            if($updateResult->getModifiedCount()>-1){
                 return $this->redirect('/customer');
             }
             var_dump($updateResult);die();
@@ -61,7 +58,7 @@ class CustomerController extends AppController
             'name'=>$data['name'],
             'phone'=>$data['phone'],
             'email'=>$data['email'],
-            'addresss'=>$data['addresss'],
+            'address'=>$data['address'],
         ]);
         if($save->isAcknowledged()) {
             $this->Flash->success('This was successful');

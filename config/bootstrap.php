@@ -90,6 +90,9 @@ try {
 if (file_exists(CONFIG . 'app_local.php')) {
     Configure::load('app_local', 'default');
 }
+// if (file_exists(CONFIG . 'text_mongodb.php')) {
+//     Configure::load('text_mongodb', 'default');
+// }
 
 /*
  * When debug = true the metadata cache should only last

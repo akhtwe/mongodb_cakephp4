@@ -22,8 +22,7 @@ use Cake\Http\Exception\NotFoundException;
 use Cake\Http\Response;
 use Cake\View\Exception\MissingTemplateException;
 
-
-use MongoDB\Client as Mongo;
+use App\lib\datasources\Mongo;
 /**
  * Static content controller
  *
@@ -74,12 +73,9 @@ class PagesController extends AppController
     }
     public function dashboard()
     {
-        $mongo = new Mongo("mongodb://127.0.0.1:27017");
-        $listDatabase=$mongo->listDatabases();
-        $customer=$mongo->companydb->customers;
+        $Connection=Mongo::connect();
+        $customer=$Connection->customers;
         $listCustomer=$customer->find()->toArray();
-        $this->set('dbs',$listDatabase);
-        $this->set('customers',$listCustomer);
         $this->viewBuilder()->setLayout('myapp');
     }
 }

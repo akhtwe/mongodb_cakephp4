@@ -22,9 +22,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="customer-address" class="form-label">Customer Address <span class="text-danger">*</span></label>
-                        <textarea name="addresss" id="customer-address" cols="30" rows="3" class="form-control" required>
-                            <?= isset($customer)?$customer->name:'';?>
-                        </textarea>
+                        <textarea name="address" id="customer-address" cols="30" rows="3" class="form-control" required><?= isset($customer)?$customer->address:'';?></textarea>
                     </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">

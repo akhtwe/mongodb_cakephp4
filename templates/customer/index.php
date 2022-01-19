@@ -20,7 +20,7 @@
                         <td><?= $customer->_id?></td>
                         <td><?= $customer->name?></td>
                         <td><?= $customer->phone?></td>
-                        <td><?= $customer->addresss?></td>
+                        <td><?= $customer->address?></td>
                         <td>
                             <a href="/customer/edit?_id=<?= $customer->_id?>" class="btn btn-sm btn-warning">Edit</a>
                             <?= $this->Form->create(null,['url' => "/customer/destory/$customer->_id",'class' => 'form-horizontal d-inline-block','id'=>'delete-customer','_method'=>'DELETE']); ?>
