@@ -1,55 +1,31 @@
-### CakePHP 4 and MongoDB
+# CakePHP 4x and MongoDB
 
-# CakePHP Application Skeleton
+## Adding Mongodb PHP driver
+- Download <a href="https://pecl.php.net/package/mongodb" style="text-decoration:none;" target="_blank">MongoDB driver</a>  for PHP
+- move `php_mongodb.dll` to PHP extension directory
+- add `extension=php_mongodb.dll` into `php.ini` file. 
 
-![Build Status](https://github.com/cakephp/app/actions/workflows/ci.yml/badge.svg?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
-[![PHPStan](https://img.shields.io/badge/PHPStan-level%207-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
+## Download Mogodb
+- download <a herf="https://www.mongodb.com/try/download/community" style="text-decoration:none;" target="_blank"> MongoDB</a>
+- create `data\db` directory in the operation root directory.
 
-A skeleton for creating applications with [CakePHP](https://cakephp.org) 4.x.
+## Configuration in CakePHP
+- set configs for mongodb in `config/app_local.php`
+<div style="border:1px solid border;border-radius:5px;">
+'Datasources' => [ <br>
+  &emsp;  .......<br>
+  &emsp; 'mongodb'=>[<br>
+        &emsp;&emsp;    'className' => 'Cake\Database\Connection',<br>
+        &emsp;&emsp;    'driver' => 'MongoDB\Client',<br>
+        &emsp;&emsp;    'persistent' => false,<br>
+        &emsp;&emsp;    'host' => '127.0.0.1',<br>
+        &emsp;&emsp;   'port' => '27017',<br>
+        &emsp;&emsp;    'username' => &lt; username &gt; ,<br>
+        &emsp;&emsp;    'password' => &lt; password &gt; ,<br>
+        &emsp;&emsp;    'database' => &lt; databasename &gt; ,<br>
+        &emsp;&emsp;    'cacheMetadata' => true,<br>
+    &emsp;    ]<br>
+</div>
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
-
-## Installation
-
-1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
-
-If Composer is installed globally, run
-
-```bash
-composer create-project --prefer-dist cakephp/app
-```
-
-In case you want to use a custom app dir name (e.g. `/myapp/`):
-
-```bash
-composer create-project --prefer-dist cakephp/app myapp
-```
-
-You can now either use your machine's webserver to view the default home page, or start
-up the built-in webserver with:
-
-```bash
-bin/cake server -p 8765
-```
-
-Then visit `http://localhost:8765` to see the welcome page.
-
-## Update
-
-Since this skeleton is a starting point for your application and various files
-would have been modified as per your needs, there isn't a way to provide
-automated upgrades, so you have to do any updates manually.
-
-## Configuration
-
-Read and edit the environment specific `config/app_local.php` and setup the 
-`'Datasources'` and any other configuration relevant for your application.
-Other environment agnostic settings can be changed in `config/app.php`.
-
-## Layout
-
-The app skeleton uses [Milligram](https://milligram.io/) (v1.3) minimalist CSS
-framework by default. You can, however, replace it with any other library or
-custom styles.
+### Note
+`In development progress . . . . `
